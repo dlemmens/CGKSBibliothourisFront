@@ -13,4 +13,9 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }
+
+
+    public Book getBookDetails(int bookId) {
+        return bookRepository.getBookDetails(bookId);
+    }
 }

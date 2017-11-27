@@ -2,10 +2,7 @@ package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -22,5 +19,10 @@ public class BookController {
     @GetMapping(produces = "application/json")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @GetMapping(path = "/{id}", produces = "application/json")
+    public Book getBookDetails(@PathVariable(value = "bookId") int bookId) {
+        return bookService.getBookDetails(bookId);
     }
 }

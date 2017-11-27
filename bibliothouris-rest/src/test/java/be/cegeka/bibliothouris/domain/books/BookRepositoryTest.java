@@ -44,4 +44,14 @@ public class BookRepositoryTest {
         Assertions.assertThat(actualBooks).contains(book1, book2);
     }
 
+    @Test
+    public void getBookDetails_ShouldReturnDetailsOfSaidBook() throws Exception {
+        Book expectedBook = BookTestBuilder.aBook().build();
+
+        entityManager.persist(expectedBook);
+
+        Book actualBook = bookRepository.getBookDetails(expectedBook.getId());
+
+        Assertions.assertThat(actualBook).isEqualTo(expectedBook);
+    }
 }

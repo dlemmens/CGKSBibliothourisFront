@@ -2,6 +2,7 @@ package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Book;
 import be.cegeka.bibliothouris.domain.books.BookService;
+import be.cegeka.bibliothouris.domain.books.BookTestBuilder;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Rule;
@@ -39,5 +40,17 @@ public class BookControllerTest {
         when(bookService.getAllBooks()).thenReturn(bookList);
         //THEN
         Assertions.assertThat(bookController.getAllBooks()).containsOnly(book1, book2);
+    }
+
+    @Test
+    public void getBookDetails_ShouldInvokeBookServiceAndReturnDetailsOfSaidBook() throws Exception {
+        Book book = BookTestBuilder
+                .aBook()
+                .withId(1)
+                .build();
+
+        when(bookService.getBookDetails(1)).thenReturn(book);
+
+        Assertions.assertThat(bookController.getBookDetails(1)).isEqualTo(book);
     }
 }

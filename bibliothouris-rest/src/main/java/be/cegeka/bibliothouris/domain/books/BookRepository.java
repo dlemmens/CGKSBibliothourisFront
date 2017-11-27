@@ -14,4 +14,8 @@ public class BookRepository {
     public List<Book> getAllBooks() {
         return entityManager.createQuery("select b from Book b", Book.class).getResultList();
     }
+
+    public Book getBookDetails(int bookId) {
+        return entityManager.find(Book.class, bookId);
+    }
 }

@@ -37,4 +37,12 @@ public class BookServiceTest {
         Assertions.assertThat(bookService.getAllBooks()).containsOnly(book1, book2);
     }
 
+    @Test
+    public void getBookDetails_ShouldInvokeBookRepositoryAndReturnDetailsOfSaidBook() throws Exception {
+        Book book = BookTestBuilder.aBook().withId(1).build();
+
+        when(bookRepository.getBookDetails(1)).thenReturn(book);
+
+        Assertions.assertThat(bookService.getBookDetails(1)).isEqualTo(book);
+    }
 }
