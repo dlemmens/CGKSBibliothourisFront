@@ -39,12 +39,33 @@ public class User {
         this.city = city;
     }
 
-    public int getId() {
-        return id;
+
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getName() {
-        return firstname;
+    public String getInss() {
+        return inss;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     @Override
