@@ -1,7 +1,9 @@
 package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.users.User;
+import be.cegeka.bibliothouris.domain.users.UserDto;
 import be.cegeka.bibliothouris.domain.users.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +20,15 @@ public class UserController {
     @Inject
     private UserService userService;
 
-    @GetMapping
+    @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)
     @Secured("ROLE_USER")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping
-    public void addUser(@RequestParam(value = "name", required = true) String name) {
-        userService.addUser(name);
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public User addUser(@RequestBody UserDto userDto) {
+       return userService.addUser(userDto);
     }
 
 }
