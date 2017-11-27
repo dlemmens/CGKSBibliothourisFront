@@ -12,7 +12,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public void addUser(String name){
-        userRepository.addUser(new User(name));
+        userRepository.addUser(new User("notnull","notnull",name,null,null,null,"notnull"));
     }
 
     public List<User> getAllUsers() {
