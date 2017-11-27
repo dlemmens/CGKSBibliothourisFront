@@ -39,7 +39,6 @@ public class User {
         this.city = city;
     }
 
-
     public int getId() {
         return id;
     }
