@@ -18,4 +18,8 @@ public class BookRepository {
     public Book getBookDetails(int bookId) {
         return entityManager.find(Book.class, bookId);
     }
+
+    public Book registerBook(Book book) {
+        return null;
+    }
 }
