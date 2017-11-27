@@ -20,6 +20,7 @@ public class BookRepository {
     }
 
     public Book registerBook(Book book) {
-        return null;
+        entityManager.persist(book);
+        return book;
     }
 }
