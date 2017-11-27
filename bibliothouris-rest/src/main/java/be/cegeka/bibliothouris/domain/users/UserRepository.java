@@ -17,8 +17,9 @@ public class UserRepository {
         return entityManager.createQuery("Select u from User u", User.class).getResultList();
     }
 
-    public void addUser(User user){
+    public User addUser(User user){
         entityManager.persist(user);
+        return user;
     }
 
     public User getUserByFirstName(String firstname) {

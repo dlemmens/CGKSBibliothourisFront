@@ -33,11 +33,15 @@ public class UserServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private UserMapper userMapper;
+
     @Test
     public void addUser_ShouldCallUserRepository() throws Exception {
-        userService.addUser("Seppe");
-
-        verify(userRepository).addUser(aUser().withName("Seppe").build());
+        UserDto test = new UserDto ("inss", "lastname","firstname","street","number","postalcode","city");
+        User testUser = userMapper.makeUserFromUserDto(test);
+        userService.addUser(test);
+        verify(userRepository).addUser(testUser);
     }
 
     @Test

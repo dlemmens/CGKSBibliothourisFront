@@ -11,8 +11,12 @@ public class UserService {
     @Inject
     private UserRepository userRepository;
 
-    public void addUser(String name){
-        userRepository.addUser(new User("notnull","notnull",name,null,null,null,"notnull"));
+    @Inject
+    private UserMapper userMapper;
+
+    public User addUser(UserDto userDto){
+        User user = userMapper.makeUserFromUserDto(userDto);
+        return userRepository.addUser(user);
     }
 
     public List<User> getAllUsers() {
