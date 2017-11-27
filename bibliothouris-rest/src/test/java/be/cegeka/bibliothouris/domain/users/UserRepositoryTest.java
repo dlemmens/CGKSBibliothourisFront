@@ -38,7 +38,7 @@ public class UserRepositoryTest {
     @Before
     public void setup(){
         seppe = aUser().withName("Seppe").build();
-        kiki = aUser().withName("Kiki").build();
+        kiki = aUser().withName("Kiki").withInns("1223333").build();
 
         entityManager.persist(seppe);
         entityManager.persist(kiki);
@@ -53,21 +53,21 @@ public class UserRepositoryTest {
 
     @Test
     public void getUserByName(){
-        User actual = userRepository.getUserByName("Seppe");
+        User actual = userRepository.getUserByFirstName("Seppe");
 
         assertThat(actual).isEqualTo(seppe);
     }
 
     @Test
     public void getUserByName_NoUserFound(){
-        assertThatThrownBy(()-> { userRepository.getUserByName("Seppe2"); } ).isInstanceOf(NoResultException.class);
+        assertThatThrownBy(()-> { userRepository.getUserByFirstName("Seppe2"); } ).isInstanceOf(NoResultException.class);
     }
 
     @Test
     public void getUserByName_NoUniqueUserFound(){
-        entityManager.persist(aUser().withName("Seppe").build());
+        entityManager.persist(aUser().withName("Seppe").withInns("1111111").build());
 
-        assertThatThrownBy(()-> { userRepository.getUserByName("Seppe"); } ).isInstanceOf(NonUniqueResultException.class);
+        assertThatThrownBy(()-> { userRepository.getUserByFirstName("Seppe"); } ).isInstanceOf(NonUniqueResultException.class);
     }
 
     @After

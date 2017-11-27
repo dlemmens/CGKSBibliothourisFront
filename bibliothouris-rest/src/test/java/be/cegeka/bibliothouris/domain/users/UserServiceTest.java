@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
+import static be.cegeka.bibliothouris.domain.users.UserTestBuilder.aUser;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
@@ -36,14 +37,14 @@ public class UserServiceTest {
     public void addUser_ShouldCallUserRepository() throws Exception {
         userService.addUser("Seppe");
 
-        verify(userRepository).addUser(new User( "Seppe"));
+        verify(userRepository).addUser(aUser().withName("Seppe").build());
     }
 
     @Test
     public void getAllUsers() throws Exception {
-        User user1 = new User( "Seppe");
-        User user2 = new User( "Sanne");
-        User user3 = new User( "Xan");
+        User user1 =aUser().withName("Seppe").withInns("123").build();
+        User user2 =aUser().withName("Sanne").withInns("1234").build();
+        User user3 = aUser().withName("Xan").withInns("123456").build();
 
         when(userRepository.getAllUsers()).thenReturn(Arrays.asList(user1, user2));
 
