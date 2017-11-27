@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.application;
 
 import be.cegeka.bibliothouris.domain.books.Book;
+import be.cegeka.bibliothouris.domain.books.BookDto;
 import be.cegeka.bibliothouris.domain.books.BookService;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
@@ -14,6 +15,8 @@ import org.mockito.junit.MockitoRule;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.apache.coyote.http11.Constants.a;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
@@ -28,6 +31,9 @@ public class BookControllerTest {
     @Mock
     private Book book1, book2;
 
+    @Mock
+    private BookDto bookDto;
+
     @InjectMocks
     private BookController bookController;
 
@@ -38,6 +44,12 @@ public class BookControllerTest {
         // WHEN
         when(bookService.getAllBooks()).thenReturn(bookList);
         //THEN
-        Assertions.assertThat(bookController.getAllBooks()).containsOnly(book1, book2);
+        assertThat(bookController.getAllBooks()).containsOnly(book1, book2);
+    }
+
+    @Test
+    public void registerBook_shouldInvokeBookServiceAndReturnABook() throws Exception {
+        when(bookService.registerBook(bookDto)).thenReturn(book1);
+        assertThat(bookController.registerBook(bookDto)).isEqualTo(book1);
     }
 }

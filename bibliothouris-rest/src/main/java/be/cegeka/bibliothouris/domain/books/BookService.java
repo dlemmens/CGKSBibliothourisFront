@@ -13,4 +13,8 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }
+
+    public Book registerBook(BookDto bookDto) {
+        return null;
+    }
 }
