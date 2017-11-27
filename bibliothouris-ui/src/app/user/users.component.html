@@ -1,5 +1,32 @@
 <ul>
     <li *ngFor="let user of users">
-        {{user.name}} - {{user.id}}
+        {{user.firstname}} - {{user.lastName}} - {{user.postalCode}} - {{user.city}}
     </li>
 </ul>
+
+<form> 
+        <fieldset>  
+    Rijksregisternummer (INSS):<br>
+    <input type="text" name="rijksregisternummer"><br>
+
+    First name:<br>
+    <input type="text" name="firstname"><br>
+
+    Last name:<br>
+    <input type="text" name="lastName"><br>
+
+    street:<br>
+    <input type="text" name="street"><br>
+
+    Housenumber:<br>
+    <input type="text" name="housenumber"><br>
+
+    Postal code:<br>
+    <input type="text" name="postalCode"><br>
+
+    City:<br>
+    <input type="text" name="city"><br>
+    <input type="submit" value="Submit">
+</fieldset>
+
+</form>

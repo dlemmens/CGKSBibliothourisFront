@@ -1,9 +1,26 @@
 export class User {
-    id: number;
-    name: string;
+    inss: string;
+    lastName: string;
+    firstname: string;
+    street: string;
+    housenumber: string;
+    postalCode: string;
+    city: string;
 
-    constructor(id: number, name: string) {
-        this.id = id;
-        this.name = name;
+    constructor(   inss: string,
+        lastName: string,
+        firstname: string,
+        street: string,
+        housenumber: string,
+        postalCode: string,
+        city: string){
+
+        this.inss= inss;
+        this.lastName = lastName;
+        this.firstname = firstname;
+        this.street = street;
+        this.housenumber = housenumber;
+        this.postalCode = postalCode;
+        this.city = city;
     }
 }
