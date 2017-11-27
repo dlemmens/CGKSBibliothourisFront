@@ -10,11 +10,14 @@ public class BookService {
     @Inject
     private BookRepository bookRepository;
 
+    @Inject
+    private BookMapper bookMapper;
+
     public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }
 
     public Book registerBook(BookDto bookDto) {
-        return null;
+        return bookRepository.registerBook(bookMapper.makeBookFromBookDTO(bookDto));
     }
 }

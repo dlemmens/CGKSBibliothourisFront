@@ -4,4 +4,7 @@ import javax.inject.Named;
 
 @Named
 public class BookMapper {
+    public Book makeBookFromBookDTO(BookDto bookDto) {
+        return null;
+    }
 }

@@ -44,8 +44,10 @@ public class BookServiceTest {
     @Test
     public void WhenRegisterBook_ShouldInvokeBookRepositoryAndReturnBook() throws Exception {
         BookDto bookDto = new BookDto("isbn","title","LastNameAuthor","firstNameAuthor");
-        Book book= new Book("isbn","title","LastNameAuthor","firstNameAuthor")
-        when(bookRepository.registerBook(book)).thenReturn(book);
-        assertThat(bookService.registerBook(bookDto)).isEqualTo(book);
+        Book book= new Book();
+        Book expectedBook= new Book();
+        when(bookMapper.makeBookFromBookDTO(bookDto)).thenReturn(book);
+        when(bookRepository.registerBook(book)).thenReturn(expectedBook);
+        assertThat(bookService.registerBook(bookDto)).isEqualTo(expectedBook);
     }
 }
