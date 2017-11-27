@@ -1,5 +1,15 @@
-<ul>
-    <li *ngFor="let book of books">
-        {{book.isbn}} - {{book.title}} - {{book.lastName}} - {{book.firstName}}
-    </li>
-</ul>
+<table style="width:50%">
+    <tr>
+        <th>Isbn</th>
+        <th>Title</th>
+        <th>Lastname</th>
+        <th>FirstName</th>
+    </tr>
+    <tr *ngFor="let book of books"> 
+        <td>{{book.isbn}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.lastName}}</td>
+        <td>{{book.firstName}}</td>
+        
+    </tr>
+</table>

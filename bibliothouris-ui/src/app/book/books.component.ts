@@ -20,5 +20,4 @@ export class Books implements OnInit {
                 this.books = books;
             });
     }
-
 }
