@@ -1,7 +1,9 @@
 import { Component, OnInit} from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 import { Book } from './Book.class'
 import { BackendService } from '../backend/backend.service'
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { BackendService } from '../backend/backend.service'
 export class Books implements OnInit {
 
     books: Array<Book> = [];
+    selectedBook: Book;
 
     constructor(private backendService: BackendService) { }
 
@@ -20,4 +23,9 @@ export class Books implements OnInit {
                 this.books = books;
             });
     }
+
+    selectBook(book: Book, event: Event) {
+        this.selectedBook = book;
+        event.stopPropagation();
+      }
 }

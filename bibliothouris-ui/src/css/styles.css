@@ -15,6 +15,26 @@
     align-content: center;
 }
 
+ .navbarResponsive {
+   background-color: lightgray;
+ }
+
+ .main {
+   background-color: rgba(255, 255, 255, 0.8);
+   height: 70dv;
+padding: 5em;
+ }
+
+ .footer {
+   height: 10dv;
+ }
+
+ .main-maintitle {
+   padding-top: 50px;
+   color: lightgray;
+   text-align: center;
+   font-size: 250%;
+ }
 .navbarResponsive{
   background-color: lightgray;
 }
@@ -28,7 +48,7 @@
   width: 100%;
   text-align: center;
 
-  
+
 }
 .footer{
     height: 10dv;
@@ -40,50 +60,64 @@
       font-size: 250%;
   }
 
-  .main-subtitle{
-      color: grey;
-      text-align: center;
-      font-size: 150%
-  }
+ .main-subtitle {
+   color: grey;
+   text-align: center;
+   font-size: 150%
+ }
+ /**************************************Bookspage***************************************/
 
-  h1 {
-    font-size: 4rem;
-  }
-  
-  .tagline-upper {
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  
-  .tagline-lower {
-    font-size: 1.2rem;
-    line-height: 1;
-  }
-  
-  .text-expanded {
-    letter-spacing: 2px;
-  }
-  
-  .text-shadow {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  }
-  
-  .text-lg {
-    font-size: 1.25rem;
-  }
+ .leftDiv {
+   min-width: 50%;
+   padding: 25px;
+ }
 
-  
-  hr.divider {
-    border-color: #292b2c;
-    max-width: 250px;
-  }
-  
-  .map-container iframe {
-    pointer-events: none;
-  }
-  
-  .map-container iframe.clicked {
-    pointer-events: auto;
-  }
-  
+ .rightDiv {
+   padding: 25px;
+ }
+
+ .booksWrapper {
+   display: flex;
+   width: 100%;
+ }
+ /******************************************************************************************/
+
+ h1 {
+   font-size: 4rem;
+ }
+
+ .tagline-upper {
+   font-size: 5rem;
+   font-weight: 700;
+   line-height: 1;
+ }
+
+ .tagline-lower {
+   font-size: 1.2rem;
+   line-height: 1;
+ }
+
+ .text-expanded {
+   letter-spacing: 2px;
+ }
+
+ .text-shadow {
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+ }
+
+ .text-lg {
+   font-size: 1.25rem;
+ }
+
+ hr.divider {
+   border-color: #292b2c;
+   max-width: 250px;
+ }
+
+ .map-container iframe {
+   pointer-events: none;
+ }
+
+ .map-container iframe.clicked {
+   pointer-events: auto;
+ }
