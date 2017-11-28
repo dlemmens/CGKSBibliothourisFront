@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { User } from './User.class'
 import { BackendService } from '../backend/backend.service'
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -13,6 +13,8 @@ export class Users implements OnInit {
 
     users: Array<User> = [];
 
+    model = new User("", "", "", "", "", "", "");
+
     constructor(private backendService: BackendService) { }
 
     ngOnInit() {
@@ -20,6 +22,11 @@ export class Users implements OnInit {
             .subscribe(users => {
                 this.users = users;
             });
+    }
+
+    newUser() {
+        this.backendService.addUser(this.model)
+        .subscribe();
     }
 
     // addUser(){
