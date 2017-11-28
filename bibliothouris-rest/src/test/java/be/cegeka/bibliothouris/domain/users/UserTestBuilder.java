@@ -1,6 +1,5 @@
 package be.cegeka.bibliothouris.domain.users;
 
-import org.apache.el.util.ReflectionUtil;
 import org.springframework.test.util.ReflectionTestUtils;
 
 public class UserTestBuilder {
@@ -11,7 +10,7 @@ public class UserTestBuilder {
     private String lastname;
     private String city;
     private String street;
-    private String houseNumber;
+    private String number;
     private String postalCode;
 
     public static UserTestBuilder aUser(){
@@ -24,7 +23,7 @@ public class UserTestBuilder {
     }
 
     public User build() {
-        User user = new User(inss,lastname,firstname,street,houseNumber,postalCode,city);
+        User user = new User(inss,lastname,firstname,street, number,postalCode,city);
         ReflectionTestUtils.setField(user, "id", id);
         return user;
         

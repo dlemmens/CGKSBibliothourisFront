@@ -5,6 +5,7 @@ import { Books } from './book/books.component';
 import { Home } from './home/home.component';
 
 const appRoutes: Routes = [
+    { path: '', component: Home }, 
     { path: 'home', component: Home },    
     { path: 'users', component: Users },
     { path: 'books', component: Books }

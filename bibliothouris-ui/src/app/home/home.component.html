@@ -1,3 +1,58 @@
-<p>
-    elaba!
-</p>
+<div class='homeWrapper'>
+    <div class='homeLeft'>
+            <h2>Log in</h2>
+            
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm"> 
+                    <div class="form-group">
+                
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !inss.valid }">
+                                    <label for="inss">Rijksregisternummer(INSS)</label>
+                                    <input type="text" class="form-control" name="inss" [(ngModel)]="model.inss" #inss="ngModel" required />
+                                    <div *ngIf="f.submitted && !inss.valid" class="help-block">Rijksregisternummer is verplicht!</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                                    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is verplicht</div>
+                                </div>
+
+                        <button type="submit" class="btn btn-success" (click)="login()">Log in</button>
+                    </div>
+                </form>
+    </div>    
+
+
+    <div class='homeRight'>
+        <h2>Register</h2>
+            <form (ngSubmit)="onSubmit()" #addUserForm="ngForm"> 
+                    <div class="form-group">
+                
+                        <label for="inss">Rijksregisternummer (INSS):</label><br>
+                        <input type="text" class="form-control" name="inss" required [(ngModel)]="model.inss" #inss="ngModel"><br>
+                
+                        <label for="firstName">First name:</label><br>
+                        <input type="text" class="form-control" name="firstName" required [(ngModel)]="model.firstName" #firstName="ngModel"><br>
+                
+                        <label for="lastName">Last name:</label><br>
+                        <input type="text" class="form-control" name="lastName" required [(ngModel)]="model.lastName" #lastName="ngModel"><br>
+                
+                        <label for="street">Street:</label><br>
+                        <input type="text" class="form-control" name="street" [(ngModel)]="model.street" #street="ngModel"><br>
+                
+                        <label for="houseNumber">Housenumber:</label><br>
+                        <input type="text" class="form-control" name="houseNumber" [(ngModel)]="model.houseNumber" #houseNumber="ngModel"><br>
+                
+                        <label for="postalCode">Postal code:</label><br>
+                        <input type="text" class="form-control" name="postalCode" [(ngModel)]="model.postalCode" #postalCode="ngModel"><br>
+                
+                        <label for="city">City:</label><br>
+                        <input type="text" class="form-control" name="city" required [(ngModel)]="model.city" #city="ngModel"><br>
+                
+                        <label for="password">Password:</label><br>
+                        <input type="text" class="form-control" name="password" required [(ngModel)]="model.password" #password="ngModel"><br><br>
+
+                        <button type="submit" class="btn btn-success" (click)="newUser()">Register</button>
+                    </div>
+                </form>
+    </div>
+</div>
