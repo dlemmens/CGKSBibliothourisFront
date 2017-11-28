@@ -15,7 +15,26 @@ public class BookRepository {
         return entityManager.createQuery("select b from Book b", Book.class).getResultList();
     }
 
+    public Book getBookDetails(int bookId) {
+        return entityManager.find(Book.class, bookId);
+    }
+
     public Book registerBook(Book book) {
-        return null;
+        entityManager.persist(book);
+        return book;
+    }
+
+    public List<Book> searchBookByISBN(String isbn) {
+        return entityManager
+                .createQuery("select b from Book b where b.isbn like :isbn", Book.class)
+                .setParameter("isbn", isbn)
+                .getResultList();
+    }
+
+    public List<Book> searchBookByTitle(String title) {
+        return entityManager
+                .createQuery("select b from Book b where b.title like :title", Book.class)
+                .setParameter("title", title)
+                .getResultList();
     }
 }

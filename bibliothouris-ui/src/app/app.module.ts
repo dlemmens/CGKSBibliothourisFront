@@ -6,17 +6,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { Users} from './user/users.component'
 import { AuthGuard } from './app.guard';
+import { Books } from './book/books.component';
+
 
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { BackendModule } from './backend/backend.module';
+import { Home } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Users
+    Users,
+    Books,
+    Home
   ],
   imports: [
     BrowserModule,

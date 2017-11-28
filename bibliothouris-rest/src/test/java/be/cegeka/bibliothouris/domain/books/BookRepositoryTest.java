@@ -18,6 +18,8 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
+import static be.cegeka.bibliothouris.domain.books.BookTestBuilder.aBook;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -41,7 +43,46 @@ public class BookRepositoryTest {
 
         List<Book> actualBooks = bookRepository.getAllBooks();
 
-        Assertions.assertThat(actualBooks).contains(book1, book2);
+        assertThat(actualBooks).contains(book1, book2);
     }
 
+    @Test
+    public void getBookDetails_ShouldReturnDetailsOfSaidBook() throws Exception {
+        Book expectedBook = aBook().build();
+        entityManager.persist(expectedBook);
+        Book actualBook = bookRepository.getBookDetails(expectedBook.getId());
+
+        assertThat(actualBook).isEqualTo(expectedBook);
+    }
+
+    @Test
+    public void registerBook_shouldRegisterABook() throws Exception {
+        Book testBook = aBook().build();
+        bookRepository.registerBook(testBook);
+        assertThat(entityManager.find(Book.class,testBook.getId())).isEqualTo(testBook);
+    }
+
+    @Test
+    public void searchBookByIsbn_ShouldReturnAListOfBooksContainingThatPartOfIsbn() throws Exception {
+        Book book1 = aBook().withIsbn("789978").build();
+        Book book2 = aBook().withIsbn("459945").build();
+        entityManager.persist(book1);
+        entityManager.persist(book2);
+
+        List<Book> actualBooks = bookRepository.searchBookByISBN("%99%");
+
+        assertThat(actualBooks).contains(book1, book2);
+    }
+
+    @Test
+    public void searchBookByTitle_ShouldReturnAListOfBooksContainingThatPartOfTitle() throws Exception {
+        Book book1 = aBook().withTitle("Guggenheim koopt een neger").build();
+        Book book2 = aBook().withTitle("The Mad Ship").build();
+        entityManager.persist(book1);
+        entityManager.persist(book2);
+
+        List<Book> actualBooks = bookRepository.searchBookByTitle("%p%");
+
+        assertThat(actualBooks).contains(book1, book2);
+    }
 }

@@ -17,7 +17,21 @@ public class BookService {
         return bookRepository.getAllBooks();
     }
 
+    public Book getBookDetails(int bookId) {
+        return bookRepository.getBookDetails(bookId);
+    }
+
     public Book registerBook(BookDto bookDto) {
         return bookRepository.registerBook(bookMapper.makeBookFromBookDTO(bookDto));
+    }
+
+    public List<Book> searchBookByISBN(String isbn) {
+        isbn = isbn.replaceAll("\\*","%");
+        return bookRepository.searchBookByISBN(isbn);
+    }
+
+    public List<Book> searchBookByTitle(String title) {
+        title = title.replaceAll("\\*", "%");
+        return bookRepository.searchBookByTitle(title);
     }
 }
