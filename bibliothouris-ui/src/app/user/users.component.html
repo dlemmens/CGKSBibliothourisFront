@@ -4,11 +4,11 @@
         <th>Name</th>
         <th>Adress</th>
     </tr>
-    <tr *ngFor="let user of users"> 
+    <tr *ngFor="let user of users">
         <td>{{user.inss}}</td>
         <td>{{user.firstname}} {{user.lastName}}</td>
         <td>{{user.street}} {{user.houseNumber}} -  {{user.city}} {{user.postalCode}}</td>
-        
+
     </tr>
 </table>
 
@@ -25,7 +25,7 @@
         <label for="name">Last name:</label> <br>
         <input type="text" name="lastName" required><br>
 
-        <label for="name">street:</label>   <br> 
+        <label for="name">street:</label>   <br>
         <input type="text" name="street"><br>
 
         <label for="name">Housenumber:</label><br>
