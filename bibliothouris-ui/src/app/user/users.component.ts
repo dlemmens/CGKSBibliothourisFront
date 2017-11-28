@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 
 import { User } from './User.class'
 import { BackendService } from '../backend/backend.service'
+import { FormsModule }   from '@angular/forms';
 
 
 @Component({

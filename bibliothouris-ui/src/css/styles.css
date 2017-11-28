@@ -19,8 +19,16 @@
   background-color: lightgray;
 }
 .main{
-    background-color: rgba(255, 255, 255, 0.507);
+    background-color: rgba(255, 255, 255, 0.8);
     height: 70dv;
+    padding: 5em;
+}
+
+.main-wrapper{
+  width: 100%;
+  text-align: center;
+
+  
 }
 .footer{
     height: 10dv;

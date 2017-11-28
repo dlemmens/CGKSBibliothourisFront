@@ -1,32 +1,42 @@
-<ul>
-    <li *ngFor="let user of users">
-        {{user.firstname}} - {{user.lastName}} - {{user.postalCode}} - {{user.city}}
-    </li>
-</ul>
+<table class="table table-striped">
+    <tr>
+        <th>INSS</th>
+        <th>Name</th>
+        <th>Adress</th>
+    </tr>
+    <tr *ngFor="let user of users"> 
+        <td>{{user.inss}}</td>
+        <td>{{user.firstname}} {{user.lastName}}</td>
+        <td>{{user.street}} {{user.houseNumber}} -  {{user.city}} {{user.postalCode}}</td>
+        
+    </tr>
+</table>
+
 
 <form> 
-        <fieldset>  
-    Rijksregisternummer (INSS):<br>
-    <input type="text" name="rijksregisternummer"><br>
+    <div class="form-group">
 
-    First name:<br>
-    <input type="text" name="firstname"><br>
+        <label for="name">Rijksregisternummer (INSS):</label><br>
+        <input type="text" name="rijksregisternummer" required><br>
 
-    Last name:<br>
-    <input type="text" name="lastName"><br>
+        <label for="name">First name:</label><br>
+        <input type="text" name="firstname" required><br>
 
-    street:<br>
-    <input type="text" name="street"><br>
+        <label for="name">Last name:</label> <br>
+        <input type="text" name="lastName" required><br>
 
-    Housenumber:<br>
-    <input type="text" name="housenumber"><br>
+        <label for="name">street:</label>   <br> 
+        <input type="text" name="street"><br>
 
-    Postal code:<br>
-    <input type="text" name="postalCode"><br>
+        <label for="name">Housenumber:</label><br>
+        <input type="text" name="houseNumber"><br>
 
-    City:<br>
-    <input type="text" name="city"><br>
-    <input type="submit" value="Submit">
-</fieldset>
+        <label for="name">Postal code:</label>  <br>
+        <input type="text" name="postalCode"><br>
 
+        <label for="name">City:</label><br>
+        <input type="text" name="city" required><br><br>
+
+        <input type="submit" value="Submit">
+    </div>
 </form>
