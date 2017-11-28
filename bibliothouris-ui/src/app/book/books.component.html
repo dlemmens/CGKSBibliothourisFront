@@ -54,8 +54,8 @@
     <tr *ngFor="let book of books">
         <td>{{book.isbn}}</td>
         <td>{{book.title}}</td>
-        <td>{{book.lastName}}</td>
-        <td>{{book.firstName}}</td>
+        <td>{{book.lastNameAuthor}}</td>
+        <td>{{book.firstNameAuthor}}</td>
     </tr>
 </table>
 
@@ -65,8 +65,8 @@
         <label for="isbn">ISBN - Number:</label><br>
         <input type="text" name="isbn" required [(ngModel)]="model.isbn" #isbn="ngModel"><br>
 
-        <label for="firsName">First name Author:</label><br>
-        <input type="text" name="firstName" required [(ngModel)]="model.firstName" #firstName="ngModel"><br>
+        <label for="firstNameAuthor">First name Author:</label><br>
+        <input type="text" name="firstNameAuthor" required [(ngModel)]="model.firstNameAuthor" #firstNameAuthor="ngModel"><br>
 
         <label for="lastNameAuthor">Last name Author:</label> <br>
         <input type="text" name="lastNameAuthor" required [(ngModel)]="model.lastNameAuthor" #lastNameAuthor="ngModel"><br>
@@ -74,7 +74,7 @@
         <label for="title"> Book Title:</label>   <br>
         <input type="text" name="title" [(ngModel)]="model.title" #title="ngModel"><br>
 
-        <button type="submit" class="btn btn-success" (click)="newBook(); registerBookForm.reset()">Register New Book</button>
+        <button type="submit" class="btn btn-success" (click)="newBook()">Register New Book</button>
 
     </div>
 </form>
