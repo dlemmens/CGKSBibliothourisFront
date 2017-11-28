@@ -29,7 +29,7 @@
           <a type="button"
              class="btn btn-primary btn-lg dialog-centered"
              (click)="loanBook(selectedBook)">
-            Loan Book 
+            Loan Book
             </a>
         </div> -->
 
@@ -44,3 +44,23 @@
       <button>Search</button>
     </div>
   </form> -->
+
+<form #registerBookForm="ngForm">
+    <div class="form-group">
+
+        <label for="isbn">ISBN - Number:</label><br>
+        <input type="text" name="isbn" required [(ngModel)]="model.isbn" #isbn="ngModel"><br>
+
+        <label for="firstNameAuthor">First name Author:</label><br>
+        <input type="text" name="firstNameAuthor" required [(ngModel)]="model.firstNameAuthor" #firstNameAuthor="ngModel"><br>
+
+        <label for="lastNameAuthor">Last name Author:</label> <br>
+        <input type="text" name="lastNameAuthor" required [(ngModel)]="model.lastNameAuthor" #lastNameAuthor="ngModel"><br>
+
+        <label for="title"> Book Title:</label>   <br>
+        <input type="text" name="title" [(ngModel)]="model.title" #title="ngModel"><br><br>
+
+        <button type="submit" class="btn btn-success" (click)="newBook()">Register New Book</button>
+
+    </div>
+</form>

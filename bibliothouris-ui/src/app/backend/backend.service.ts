@@ -35,4 +35,11 @@ export class BackendService {
 
         return this.http.post<User>(`${environment.baseUrl}/user` , user);
     }
+
+    registerBook(book : Book){
+    let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+    return this.http.post<Book>(`${environment.baseUrl}/book` , book, { headers: header});
+    }
 }

@@ -2,7 +2,7 @@
     <div class='homeLeft'>
             <h2>Log in</h2>
             
-            <form (ngSubmit)="onSubmit()" #loginForm="ngForm"> 
+            <form #loginForm="ngForm"> 
                     <div class="form-group">
                 
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !inss.valid }">
@@ -24,7 +24,7 @@
 
     <div class='homeRight'>
         <h2>Register</h2>
-            <form (ngSubmit)="onSubmit()" #addUserForm="ngForm"> 
+            <form #addUserForm="ngForm"> 
                     <div class="form-group">
                 
                         <label for="inss">Rijksregisternummer (INSS):</label><br>

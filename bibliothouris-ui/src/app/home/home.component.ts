@@ -20,15 +20,15 @@ export class Home {
         .subscribe();
     }
 
-    login() {
-        this.authenticationService.login(this.model.inss, this.model.password)
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                });
-    }
+    // login() {
+    //     this.authenticationService.login(this.model.inss, this.model.password)
+    //         .subscribe(
+    //             data => {
+    //                 this.router.navigate([this.returnUrl]);
+    //             },
+    //             error => {
+    //                 this.alertService.error(error);
+    //             });
+    // }
     
 }
