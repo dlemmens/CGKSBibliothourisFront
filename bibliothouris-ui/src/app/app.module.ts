@@ -14,12 +14,14 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { BackendModule } from './backend/backend.module';
+import { Home } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Users,
-    Books
+    Books,
+    Home
   ],
   imports: [
     BrowserModule,

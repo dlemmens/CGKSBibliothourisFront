@@ -1,3 +1,4 @@
+import { Component, OnInit} from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
 
@@ -6,8 +7,5 @@ import { FormsModule }   from '@angular/forms';
     templateUrl: './home.component.html'
 })
 export class Home {
-
-   
-   
 
 }
