@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.apache.coyote.http11.Constants.a;
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
@@ -63,6 +64,15 @@ public class BookControllerTest {
 
         when(bookService.getBookDetails(1)).thenReturn(book);
 
-        Assertions.assertThat(bookController.getBookDetails(1)).isEqualTo(book);
+        assertThat(bookController.getBookDetails(1)).isEqualTo(book);
+    }
+
+    @Test
+    public void searchBookByISBN_ShouldInvokeBookServiceAndReturnAListOfBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookService.searchBookByISBN("*3*")).thenReturn(bookList);
+
+        assertThat(bookController.searchBookByISBN("*3*")).containsOnly(book1, book2);
     }
 }

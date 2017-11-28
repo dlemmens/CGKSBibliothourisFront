@@ -59,4 +59,13 @@ public class BookServiceTest {
         when(bookRepository.registerBook(book)).thenReturn(expectedBook);
         assertThat(bookService.registerBook(bookDto)).isEqualTo(expectedBook);
     }
+
+    @Test
+    public void searchBookByISBN_ShouldReturnInvokeCustomerRepositoryAndReturnAListOfBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookRepository.searchBookByISBN("%3%")).thenReturn(bookList);
+
+        assertThat(bookService.searchBookByISBN("*3*")).containsOnly(book1, book2);
+    }
 }

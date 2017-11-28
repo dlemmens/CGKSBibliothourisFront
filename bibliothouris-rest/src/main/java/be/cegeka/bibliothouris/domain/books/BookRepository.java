@@ -23,4 +23,11 @@ public class BookRepository {
         entityManager.persist(book);
         return book;
     }
+
+    public List<Book> searchBookByISBN(String isbn) {
+        return entityManager
+                .createQuery("select b from Book b where b.isbn like :isbn", Book.class)
+                .setParameter("isbn", isbn)
+                .getResultList();
+    }
 }
