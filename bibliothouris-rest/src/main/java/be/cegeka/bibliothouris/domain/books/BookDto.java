@@ -12,4 +12,7 @@ public class BookDto {
         this.lastNameAuthor =lastNameAuthor;
         this.firstNameAuthor = firstNameAuthor;
     }
+
+    public BookDto() {
+    }
 }

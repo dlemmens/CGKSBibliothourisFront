@@ -1,41 +1,43 @@
-<table class="table table-striped table-hover">
+<table class="table table-striped">
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Postal Code</th>
-        <th>City</th>
+        <th>INSS</th>
+        <th>Name</th>
+        <th>Adress</th>
     </tr>
-    <tr *ngFor="let user of users"> 
-        <td>{{user.firstname}}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.postalCode}}</td>
-        <td>{{user.city}}</td>
+    <tr *ngFor="let user of users">
+        <td>{{user.inss}}</td>
+        <td>{{user.firstname}} {{user.lastname}}</td>
+        <td>{{user.street}} {{user.number}} -  {{user.city}} {{user.postalcode}}</td>
+
     </tr>
 </table>
 
-<form> 
-        <fieldset>  
-    Rijksregisternummer (INSS):<br>
-    <input type="text" name="rijksregisternummer"><br>
 
-    First name:<br>
-    <input type="text" name="firstname"><br>
+<form (ngSubmit)="onSubmit()" #addUserForm="ngForm"> 
+    <div class="form-group">
 
-    Last name:<br>
-    <input type="text" name="lastName"><br>
+        <label for="inss">Rijksregisternummer (INSS):</label><br>
+        <input type="text" name="inss" required [(ngModel)]="model.inss" #inss="ngModel"><br>
 
-    street:<br>
-    <input type="text" name="street"><br>
+        <label for="firstname">First name:</label><br>
+        <input type="text" name="firstname" required [(ngModel)]="model.firstname" #firstname="ngModel"><br>
 
-    Housenumber:<br>
-    <input type="text" name="housenumber"><br>
+        <label for="lastname">Last name:</label><br>
+        <input type="text" name="lastname" required [(ngModel)]="model.lastname" #lastName="ngModel"><br>
 
-    Postal code:<br>
-    <input type="text" name="postalCode"><br>
+        <label for="street">Street:</label><br>
+        <input type="text" name="street" [(ngModel)]="model.street" #street="ngModel"><br>
 
-    City:<br>
-    <input type="text" name="city"><br>
-    <input type="submit" value="Submit">
-</fieldset>
+        <label for="number">Housenumber:</label><br>
+        <input type="text" name="number" [(ngModel)]="model.number" #houseNumber="ngModel"><br>
 
+        <label for="postalcode">Postal code:</label><br>
+        <input type="text" name="postalcode" [(ngModel)]="model.postalcode" #postalCode="ngModel"><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" name="city" required [(ngModel)]="model.city" #city="ngModel"><br><br>
+
+        <button type="submit" class="btn btn-success" (click)="newUser()">Submit</button>
+        <!-- <button type="button" class="btn btn-default" (click)="newUser(); addUserForm.reset()">New User</button> -->
+    </div>
 </form>

@@ -25,6 +25,14 @@ export class BackendService {
         'Authorization' : 'Basic ' + btoa('seppe:password')
     });
 
-    return this.http.get<Array<Book>>(`${environment.baseUrl}/book` , { headers: header });
+        return this.http.get<Array<Book>>(`${environment.baseUrl}/book` , { headers: header });
+    }
+
+    addUser(user : User) {
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+
+        return this.http.post<User>(`${environment.baseUrl}/user` , user);
     }
 }
