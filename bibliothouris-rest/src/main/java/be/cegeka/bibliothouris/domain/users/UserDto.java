@@ -21,7 +21,4 @@ public class UserDto {
         this.postalcode = postalcode;
         this.city = city;
     }
-
-    public UserDto() {
-    }
 }
