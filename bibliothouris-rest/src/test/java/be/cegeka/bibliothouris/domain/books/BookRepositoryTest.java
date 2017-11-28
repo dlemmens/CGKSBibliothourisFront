@@ -73,4 +73,16 @@ public class BookRepositoryTest {
 
         assertThat(actualBooks).contains(book1, book2);
     }
+
+    @Test
+    public void searchBookByTitle_ShouldReturnAListOfBooksContainingThatPartOfTitle() throws Exception {
+        Book book1 = aBook().withTitle("Guggenheim koopt een neger").build();
+        Book book2 = aBook().withTitle("The Mad Ship").build();
+        entityManager.persist(book1);
+        entityManager.persist(book2);
+
+        List<Book> actualBooks = bookRepository.searchBookByTitle("%p%");
+
+        assertThat(actualBooks).contains(book1, book2);
+    }
 }
