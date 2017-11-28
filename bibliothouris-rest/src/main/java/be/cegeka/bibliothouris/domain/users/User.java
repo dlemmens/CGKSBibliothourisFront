@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -8,6 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id;
     @Column(name = "FIRSTNAME")
     private String firstname;
@@ -23,6 +25,14 @@ public class User {
     private String postalCode;
     @Column(name = "CITY")
     private String city;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "USER_ROLE",
+            joinColumns = {@JoinColumn(name = "USER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")}
+    )
+    private List<Role> roles;
 
 
     private User(){
