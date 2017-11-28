@@ -1,26 +1,19 @@
  body {
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   background: url('../img/bibliotheek.jpg') no-repeat center center fixed;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   background-size: cover;
-   -o-background-size: cover;
- }
-
- h1,
- h2,
- h3,
- h4,
- h5,
- h6,
- .text-heading {
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- }
-
- .headspace {
-   height: 20dv;
-   align-content: center;
- }
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: url('../img/bibliotheek.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .text-heading {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+  }
+.headspace{
+    height: 20dv;
+    align-content: center;
+}
 
  .navbarResponsive {
    background-color: lightgray;
@@ -29,6 +22,7 @@
  .main {
    background-color: rgba(255, 255, 255, 0.8);
    height: 70dv;
+padding: 5em;
  }
 
  .footer {
@@ -41,6 +35,30 @@
    text-align: center;
    font-size: 250%;
  }
+.navbarResponsive{
+  background-color: lightgray;
+}
+.main{
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 70dv;
+    padding: 5em;
+}
+
+.main-wrapper{
+  width: 100%;
+  text-align: center;
+
+
+}
+.footer{
+    height: 10dv;
+}
+  .main-maintitle{
+      padding-top: 50px;
+      color: lightgray;
+      text-align: center;
+      font-size: 250%;
+  }
 
  .main-subtitle {
    color: grey;

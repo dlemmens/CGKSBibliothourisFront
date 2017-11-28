@@ -1,5 +1,5 @@
 <div class='booksWrapper'>
-    <div class='leftDiv' (click)="selectBook(book, $event)">
+    <div class='leftDiv'>
         <table class="table table-striped table-hover">
             <tr>
                 <th>Isbn</th>
@@ -8,7 +8,7 @@
                 <th>First name</th>
                 <th>Id</th>
             </tr>
-            <tr *ngFor="let book of books">
+            <tr *ngFor="let book of books" (click)="selectBook(book, $event)">
                 <td>{{book.isbn}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.lastName}}</td>
@@ -17,8 +17,7 @@
             </tr>
         </table>
     </div>
-    <section id="bookDetails" class="tiny-dialog fader"     >
-     <!-- *ngIf="selectedBook" -->
+    <section id="bookDetails" class="tiny-dialog fader" *ngIf="selectedBook">
         <div class='rightDiv'>
             <h3>{{selectedBook.title}}</h3>
             <p>Isbn: {{selectedBook.isbn}}</p>
