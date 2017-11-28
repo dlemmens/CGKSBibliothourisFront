@@ -56,10 +56,21 @@ public class BookRepositoryTest {
     }
 
     @Test
-    public void registerBook_shouldRegisterAbook() throws Exception {
+    public void registerBook_shouldRegisterABook() throws Exception {
         Book testBook = aBook().build();
         bookRepository.registerBook(testBook);
         assertThat(entityManager.find(Book.class,testBook.getId())).isEqualTo(testBook);
+    }
 
+    @Test
+    public void searchBookByIsbn_ShouldReturnAListOfBooksContainingThatPartOfIsbn() throws Exception {
+        Book book1 = aBook().withIsbn("789978").build();
+        Book book2 = aBook().withIsbn("459945").build();
+        entityManager.persist(book1);
+        entityManager.persist(book2);
+
+        List<Book> actualBooks = bookRepository.searchBookByISBN("%99%");
+
+        assertThat(actualBooks).contains(book1, book2);
     }
 }

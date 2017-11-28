@@ -24,4 +24,9 @@ public class BookService {
     public Book registerBook(BookDto bookDto) {
         return bookRepository.registerBook(bookMapper.makeBookFromBookDTO(bookDto));
     }
+
+    public List<Book> searchBookByISBN(String isbn) {
+        isbn = isbn.replaceAll("\\*","%");
+        return bookRepository.searchBookByISBN(isbn);
+    }
 }
