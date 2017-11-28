@@ -20,4 +20,6 @@ export class Books implements OnInit {
                 this.books = books;
             });
     }
+    submitted = true
+    onSubmit()
 }
