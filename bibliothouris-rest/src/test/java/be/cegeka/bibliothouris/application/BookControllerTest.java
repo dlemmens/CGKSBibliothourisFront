@@ -75,4 +75,13 @@ public class BookControllerTest {
 
         assertThat(bookController.searchBookByISBN("*3*")).containsOnly(book1, book2);
     }
+
+    @Test
+    public void searchBookByTitle_ShouldInvokeBookServiceAndReturnAListOfBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookService.searchBookByTitle("*p*")).thenReturn(bookList);
+
+        assertThat(bookController.searchBookByTitle("*p*")).containsOnly(book1, book2);
+    }
 }
