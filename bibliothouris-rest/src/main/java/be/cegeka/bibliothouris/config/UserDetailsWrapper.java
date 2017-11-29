@@ -1,10 +1,12 @@
 package be.cegeka.bibliothouris.config;
 
+import be.cegeka.bibliothouris.domain.users.Role;
 import be.cegeka.bibliothouris.domain.users.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -19,7 +21,12 @@ public class UserDetailsWrapper implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        ArrayList<GrantedAuthority> userRoles = new ArrayList<>();
+
+        for (Role r : user.getRoles()) {
+            userRoles.add(new SimpleGrantedAuthority("ROLE_" + r.getRoleType()));
+        }
+        return userRoles;
     }
 
     @Override

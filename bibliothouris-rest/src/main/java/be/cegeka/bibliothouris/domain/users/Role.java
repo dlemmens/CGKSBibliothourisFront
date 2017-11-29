@@ -16,4 +16,12 @@ public class Role {
 
     public Role() {
     }
+
+    public Role(RoleType roleType) {
+        this.roleType = roleType;
+    }
+
+    public RoleType getRoleType() {
+        return roleType;
+    }
 }
