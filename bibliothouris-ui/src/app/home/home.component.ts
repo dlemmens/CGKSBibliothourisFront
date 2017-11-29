@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms';
 
 import { User } from '../user/User.class'
 import { BackendService } from '../backend/backend.service'
+import { Userlogindata } from '../user/Userlogindata.class';
+import { HttpResponse } from '@angular/common/http/src/response';
 
 @Component({
     selector: 'home',
@@ -11,24 +13,23 @@ import { BackendService } from '../backend/backend.service'
 })
 export class Home {
 
+    user = new User("", "", "", "", "", "", "","");
+    userlogindata = new Userlogindata("","");
+    isLoggedIn: Boolean;
 
-    model = new User("", "", "", "", "", "", "","");
     constructor(private backendService: BackendService) { }
     
     newUser() {
-        this.backendService.addUser(this.model)
+        this.backendService.addUser(this.user)
         .subscribe();
     }
 
-    // login() {
-    //     this.authenticationService.login(this.model.inss, this.model.password)
-    //         .subscribe(
-    //             data => {
-    //                 this.router.navigate([this.returnUrl]);
-    //             },
-    //             error => {
-    //                 this.alertService.error(error);
-    //             });
-    // }
-    
+    login() {
+        this.backendService.validateLogin(this.userlogindata)
+        .subscribe(response => {
+            console.log(response);
+            this.isLoggedIn = response.status === 200;
+        });
+    }
+
 }

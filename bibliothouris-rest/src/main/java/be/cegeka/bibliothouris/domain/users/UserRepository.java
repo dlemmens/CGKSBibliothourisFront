@@ -27,4 +27,10 @@ public class UserRepository {
                 .setParameter("firstName", firstName)
                 .getSingleResult();
     }
+
+    public User findUserByInss(String inss) {
+        return entityManager.createQuery("select u from User u where u.inss like :inss", User.class)
+                .setParameter("inss", inss)
+                .getSingleResult();
+    }
 }

@@ -70,6 +70,11 @@ public class UserRepositoryTest {
         assertThatThrownBy(()-> { userRepository.getUserByFirstName("Seppe"); } ).isInstanceOf(NonUniqueResultException.class);
     }
 
+    @Test
+    public void findUserByInss_ShouldReturnCorrectUser() throws Exception {
+        assertThat(userRepository.findUserByInss("1223333")).isEqualTo(kiki);
+    }
+
     @After
     public void teardown(){
         entityManager.clear();

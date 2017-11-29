@@ -1,5 +1,6 @@
 package be.cegeka.bibliothouris.application;
 
+import be.cegeka.bibliothouris.domain.users.Role;
 import be.cegeka.bibliothouris.domain.users.User;
 import be.cegeka.bibliothouris.domain.users.UserDto;
 import be.cegeka.bibliothouris.domain.users.UserService;
@@ -29,6 +30,11 @@ public class UserController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public User addUser(@RequestBody UserDto userDto) {
        return userService.addUser(userDto);
+    }
+
+    @GetMapping(path = "/loggedInUser", produces = "application/json")
+    public User getUser(@RequestParam(value = "inss") String inss) {
+        return userService.getUser(inss);
     }
 
 }

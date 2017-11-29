@@ -44,4 +44,11 @@ public class UserControllerTest {
         verify(userService).addUser(test);
     }
 
+    @Test
+    public void getUser_ShouldInvokeUserServiceAndReturnAUser() throws Exception {
+        User user = aUser().build();
+
+        when(userService.getUser("123")).thenReturn(user);
+        Assertions.assertThat(userController.getUser("123")).isEqualTo(user);
+    }
 }
