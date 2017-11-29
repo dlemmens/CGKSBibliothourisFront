@@ -22,9 +22,9 @@ public class UserRepository {
         return user;
     }
 
-    public User getUserByFirstName(String firstname) {
-        return entityManager.createQuery("select u from User u where u.firstname like :firstname", User.class)
-                .setParameter("firstname", firstname)
+    public User getUserByFirstName(String firstName) {
+        return entityManager.createQuery("select u from User u where u.firstName like :firstName", User.class)
+                .setParameter("firstName", firstName)
                 .getSingleResult();
     }
 }

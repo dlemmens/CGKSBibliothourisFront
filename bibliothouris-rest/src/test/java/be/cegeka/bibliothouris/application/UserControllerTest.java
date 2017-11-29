@@ -39,7 +39,7 @@ public class UserControllerTest {
 
     @Test
     public void addUser() throws Exception {
-        UserDto test = new UserDto ("inss", "lastname","firstname","street","number","postalcode","city");
+        UserDto test = new UserDto ("inss", "lastName","firstName","street","houseNumber","postalCode","city");
         userController.addUser(test);
         verify(userService).addUser(test);
     }

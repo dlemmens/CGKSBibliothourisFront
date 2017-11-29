@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -8,9 +9,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id;
     @Column(name = "FIRSTNAME")
-    private String firstname;
+    private String firstName;
     @Column(name = "INSS")
     private String inss;
     @Column(name = "LASTNAME")
@@ -24,15 +26,28 @@ public class User {
     @Column(name = "CITY")
     private String city;
 
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "USER_ROLE",
+            joinColumns = {@JoinColumn(name = "USER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")}
+    )
+    private List<Role> roles;
+
 
     private User(){
     }
 
-    public User(String inss, String lastName,
-                String firstName, String street, String houseNumber, String postalCode, String city) {
+    public User(String inss,
+                String lastName,
+                String firstName,
+                String street,
+                String houseNumber,
+                String postalCode,
+                String city) {
         this.inss = inss;
         this.lastName = lastName;
-        this.firstname = firstName;
+        this.firstName = firstName;
         this.street = street;
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
@@ -40,8 +55,8 @@ public class User {
     }
 
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getInss() {
@@ -76,13 +91,13 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
-        return firstname != null ? firstname.equals(user.firstname) : user.firstname == null;
+        return firstName != null ? firstName.equals(user.firstName) : user.firstName == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         return result;
     }
 }

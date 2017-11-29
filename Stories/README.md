@@ -16,14 +16,14 @@ As a registered user I can search for a book by entering a part of the Author. I
 ## Story 6:
 As a librarian I can register a new book
 ## Story 7:
-As an unregistered user I want to be able to register myself as a new library member. This member should have a unique INSS, last name, first name, street, number, postal code and city.
+As an unregistered user I want to be able to register myself as a new library member. This member should have a unique INSS, last name, first name, street, houseNumber, postal code and city.
 The INSS should be filled in and unique.
 The last name and city should be filled in.
 Don't validate the postal code and the city.
 ## Story 8:
 As an admin user I want to be able to view all registered members within the system.
 ## Story 9:
-As a member I can lend a book. You should be able to put in a member identification number, ISBN number of the book and a due date(by default today + 3 weeks)
+As a member I can lend a book. You should be able to put in a member identification houseNumber, ISBN houseNumber of the book and a due date(by default today + 3 weeks)
 ISBN and INSS should exist and filled in.
 ## Story 10:
 As a member I can return a book. When the book is late, show a corresponding message.

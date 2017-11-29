@@ -13,8 +13,6 @@ export class Users implements OnInit {
 
     users: Array<User> = [];
 
-    model = new User("", "", "", "", "", "", "");
-
     constructor(private backendService: BackendService) { }
 
     ngOnInit() {
@@ -24,10 +22,7 @@ export class Users implements OnInit {
             });
     }
 
-    newUser() {
-        this.backendService.addUser(this.model)
-        .subscribe();
-    }
+
 
     // addUser(){
 

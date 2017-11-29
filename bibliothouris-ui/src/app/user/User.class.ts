@@ -1,26 +1,29 @@
 export class User {
     inss: string;
-    lastname: string;
-    firstname: string;
+    lastName: string;
+    firstName: string;
     street: string;
-    number: string;
-    postalcode: string;
+    houseNumber: string;
+    postalCode: string;
     city: string;
+    password: string;
 
     constructor(   inss: string,
-        lastname: string,
-        firstname: string,
+        lastName: string,
+        firstName: string,
         street: string,
-       number: string,
-        postalcode: string,
-        city: string){
+        houseNumber: string,
+        postalCode: string,
+        city: string,
+        password: string){
 
         this.inss= inss;
-        this.lastname = lastname;
-        this.firstname = firstname;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.street = street;
-        this.number = number;
-        this.postalcode = postalcode;
-        this.city = city;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city
+        this.password = password;
     }
 }
