@@ -9,6 +9,5 @@ export class Userlogindata {
         this.inss = inss;
         this.password = password;
     }
-
-
+}
 

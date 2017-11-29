@@ -70,6 +70,6 @@ export class BackendService {
             'Authorization': 'Basic ' + btoa(`${userlogindata.inss}:${userlogindata.password}`)
         });
 
-        return this.http.get<User>(`${environment.baseUrl}/user/loggedInUser`, { headers: header, observe: 'response' });
+        return this.http.get<User>(`${environment.baseUrl}/user/loggedInUser`, { headers: header, params: {"inss": userlogindata.inss}, observe: 'response' });
     }
 }

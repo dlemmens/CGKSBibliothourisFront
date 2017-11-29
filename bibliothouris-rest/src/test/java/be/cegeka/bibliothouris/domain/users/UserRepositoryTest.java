@@ -48,7 +48,7 @@ public class UserRepositoryTest {
     public void getAllUsers() throws Exception {
         List<User> users = userRepository.getAllUsers();
 
-        assertThat(users).containsOnly(seppe, kiki);
+        assertThat(users).contains(seppe, kiki);
     }
 
     @Test
