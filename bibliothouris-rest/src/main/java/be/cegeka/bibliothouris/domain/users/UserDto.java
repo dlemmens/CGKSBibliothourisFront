@@ -8,11 +8,12 @@ public class UserDto {
     public String houseNumber;
     public String postalCode;
     public String city;
+    public String password;
 
     public UserDto() {
     }
 
-    public UserDto(String inss, String lastName, String firstName, String street, String houseNumber, String postalCode, String city) {
+    public UserDto(String inss, String lastName, String firstName, String street, String houseNumber, String postalCode, String city, String password) {
         this.inss = inss;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -20,5 +21,6 @@ public class UserDto {
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
         this.city = city;
+        this.password = password;
     }
 }

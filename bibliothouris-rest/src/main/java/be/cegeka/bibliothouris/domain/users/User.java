@@ -25,6 +25,21 @@ public class User {
     private String postalCode;
     @Column(name = "CITY")
     private String city;
+    @Column (name = "PASSWORD")
+    private String password;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPassword() {
+
+        return password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
@@ -38,22 +53,16 @@ public class User {
     private User(){
     }
 
-    public User(String inss,
-                String lastName,
-                String firstName,
-                String street,
-                String houseNumber,
-                String postalCode,
-                String city) {
+    public User(String inss, String lastName, String firstName, String street, String houseNumber, String postalCode, String city, String password) {
+        this.firstName = firstName;
         this.inss = inss;
         this.lastName = lastName;
-        this.firstName = firstName;
         this.street = street;
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
         this.city = city;
+        this.password = password;
     }
-
 
     public String getFirstName() {
         return firstName;

@@ -38,7 +38,7 @@ public class UserServiceTest {
 
     @Test
     public void addUser_ShouldCallUserRepository() throws Exception {
-        UserDto test = new UserDto ("inss", "lastName","firstName","street","houseNumber","postalCode","city");
+        UserDto test = new UserDto ("inss", "lastName","firstName","street","houseNumber","postalCode","city", "password");
         User testUser = userMapper.makeUserFromUserDto(test);
         userService.addUser(test);
         verify(userRepository).addUser(testUser);

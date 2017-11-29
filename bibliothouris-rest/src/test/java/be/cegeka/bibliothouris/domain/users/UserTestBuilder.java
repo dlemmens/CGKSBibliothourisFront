@@ -12,18 +12,25 @@ public class UserTestBuilder {
     private String street;
     private String number;
     private String postalCode;
+    private String password;
 
     public static UserTestBuilder aUser(){
         return new UserTestBuilder()
                 .withName("Seppe")
                 .withInns("12335")
                 .withLastName("Gielen")
-                .withCity("Leuven");
+                .withCity("Leuven")
+                .withPassword("password");
         
     }
 
+    private UserTestBuilder withPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
     public User build() {
-        User user = new User(inss,lastname,firstname,street, number,postalCode,city);
+        User user = new User(inss,lastname,firstname,street, number,postalCode,city,password);
         ReflectionTestUtils.setField(user, "id", id);
         return user;
         

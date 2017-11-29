@@ -17,8 +17,8 @@ public class UserMapperTest {
 
     @Test
     public void makeUserFromUserDto() throws Exception {
-        UserDto test = new UserDto("inss", "lastName", "firstName", "street", "houseNumber", "postalCode", "city");
-        User usertest = new User("inss", "lastName", "firstName", "street", "houseNumber", "postalCode", "city");
+        UserDto test = new UserDto("inss", "lastName", "firstName", "street", "houseNumber", "postalCode", "city", "password");
+        User usertest = new User("inss", "lastName", "firstName", "street", "houseNumber", "postalCode", "city", "password");
         assertThat(userMapper.makeUserFromUserDto(test)).isEqualTo(usertest);
     }
 
