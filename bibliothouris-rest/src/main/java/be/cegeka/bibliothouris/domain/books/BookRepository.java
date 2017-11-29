@@ -40,7 +40,7 @@ public class BookRepository {
 
     public List<Book> searchBookByAuthor(String author) {
         return  entityManager.createQuery("Select b from Book b where concat(b.firstName, b.lastName) like :author or concat(b.lastName, b.firstName) like :author" ,Book.class)
-                .setParameter("author","%"+author+"%")
+                .setParameter("author",author)
                 .getResultList();
     }
 }

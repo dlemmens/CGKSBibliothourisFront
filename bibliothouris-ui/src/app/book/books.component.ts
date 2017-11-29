@@ -15,6 +15,8 @@ export class Books implements OnInit {
     books: Array<Book> = [];
     selectedBook: Book;
     bookIsbn : string ="";
+    bookTitle : string = "";
+    bookAuthor: string = "";
 
     model = new Book("","","","");
 

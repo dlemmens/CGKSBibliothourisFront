@@ -50,13 +50,13 @@ public class BookController {
 
     @GetMapping(path = "/byTitle", produces = "application/json")
     @Secured("ROLE_USER")
-    public List<Book> searchBookByTitle(@RequestParam(value = "title") String title) {
+    public List<Book> searchBookByTitle(@RequestParam(value = "title", required = false) String title) {
         return bookService.searchBookByTitle(title);
     }
 
     @GetMapping(path = "/byauthor", produces = "application/json")
     @Secured("ROLE_USER")
-    public List<Book> searchBookByAuthor(@RequestParam(value = "author") String author) {
+    public List<Book> searchBookByAuthor(@RequestParam(value = "author", required = false) String author) {
         return bookService.searchBookByAuthor(author);
     }
 

@@ -17,7 +17,7 @@ export class BackendService {
     getUsers(): Observable<Array<User>> {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('86754:password')
         });
 
         return this.http.get<Array<User>>(`${environment.baseUrl}/user`, {
@@ -28,7 +28,7 @@ export class BackendService {
     getAllBooks(): Observable<Array<Book>> {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('86754:password')
         });
 
         return this.http.get<Array<Book>>(`${environment.baseUrl}/book`, {
@@ -39,7 +39,7 @@ export class BackendService {
     addUser(user: User) {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('86754:password')
         });
 
         return this.http.post<User>(`${environment.baseUrl}/user`, user);
@@ -48,7 +48,7 @@ export class BackendService {
     registerBook(book: Book) {
         let header = new HttpHeaders({
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + btoa('seppe:password')
+            'Authorization': 'Basic ' + btoa('86754:password')
         });
         return this.http.post<Book>(`${environment.baseUrl}/book`, book, {
             headers: header
@@ -57,7 +57,7 @@ export class BackendService {
 
     getBookByIsbn(isbn) {
         let header = new HttpHeaders({ 'Accept': 'application/json',
-        'Authorization' : 'Basic ' + btoa('seppe:password')
+        'Authorization' : 'Basic ' + btoa('86754:password')
     });
 
     return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byisbn` , { headers: header, params: {"isbn":isbn} });
@@ -75,7 +75,7 @@ export class BackendService {
 
 getBookByTitle(title){
         let header = new HttpHeaders({ 'Accept': 'application/json',
-        'Authorization' : 'Basic ' + btoa('seppe:password')
+        'Authorization' : 'Basic ' + btoa('86754:password')
     });
 
     return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byTitle` , { headers: header, params: {"title":title} });
@@ -83,7 +83,7 @@ getBookByTitle(title){
 
     getBookByAuthor(author){
         let header = new HttpHeaders({ 'Accept': 'application/json',
-        'Authorization' : 'Basic ' + btoa('seppe:password')
+        'Authorization' : 'Basic ' + btoa('86754:password')
     });
 
     return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byauthor` , { headers: header, params: {"author":author} });
