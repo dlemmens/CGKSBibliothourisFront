@@ -54,4 +54,12 @@ public class UserServiceTest {
 
         assertThat(userService.getAllUsers()).containsOnly(user1, user2);
     }
+
+    @Test
+    public void getUser_ShouldInvokeUserRepositoryAndReturnAUser() throws Exception {
+        User user = aUser().build();
+
+        when(userRepository.findUserByInss("123")).thenReturn(user);
+        Assertions.assertThat(userService.getUser("123")).isEqualTo(user);
+    }
 }

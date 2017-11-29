@@ -28,9 +28,9 @@ public class User {
     private String city;
     @Column (name = "PASSWORD")
     private String password;
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(
-            name = "USER_ROLE",
+            name = "USER_ROLES",
             joinColumns = {@JoinColumn(name = "USER_ID")},
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID")}
     )

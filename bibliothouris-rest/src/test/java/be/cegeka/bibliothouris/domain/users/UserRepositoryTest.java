@@ -48,7 +48,7 @@ public class UserRepositoryTest {
     public void getAllUsers() throws Exception {
         List<User> users = userRepository.getAllUsers();
 
-        assertThat(users).containsOnly(seppe, kiki);
+        assertThat(users).contains(seppe, kiki);
     }
 
     @Test
@@ -68,6 +68,11 @@ public class UserRepositoryTest {
         entityManager.persist(aUser().withName("Seppe").withInns("1111111").build());
 
         assertThatThrownBy(()-> { userRepository.getUserByFirstName("Seppe"); } ).isInstanceOf(NonUniqueResultException.class);
+    }
+
+    @Test
+    public void findUserByInss_ShouldReturnCorrectUser() throws Exception {
+        assertThat(userRepository.findUserByInss("1223333")).isEqualTo(kiki);
     }
 
     @After
