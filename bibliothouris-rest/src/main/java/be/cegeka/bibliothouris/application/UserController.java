@@ -21,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping (produces = MediaType.APPLICATION_JSON_VALUE)
-    @Secured("ROLE_USER")
+    @Secured("ROLE_ADMIN")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
