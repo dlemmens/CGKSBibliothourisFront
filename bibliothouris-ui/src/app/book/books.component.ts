@@ -14,6 +14,7 @@ export class Books implements OnInit {
 
     books: Array<Book> = [];
     selectedBook: Book;
+    bookIsbn : string ="";
 
     model = new Book("","","","");
 
@@ -35,4 +36,12 @@ export class Books implements OnInit {
     this.backendService.registerBook(this.model)
     .subscribe();
     }
+
+    getByIsbn(isbn){
+    this.backendService.getBookByIsbn(isbn)
+    .subscribe(books => {
+        this.books = books;
+    })
+    }
+
 }

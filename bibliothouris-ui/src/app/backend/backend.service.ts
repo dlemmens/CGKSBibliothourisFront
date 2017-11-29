@@ -1,23 +1,11 @@
-import {
-    Injectable
-} from '@angular/core';
-import {
-    HttpClient,
-    HttpHeaders,
-    HttpResponse
-} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {
-    Observable
-} from 'rxjs';
-import {
-    environment
-} from '../../environments/environment'
-import {
-    User
-} from '../user/User.class'
-import { Book } from '../book/Book.class'
-import { Userlogindata } from '../user/Userlogindata.class'
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment'
+import {User} from '../user/User.class'
+import {Book} from '../book/Book.class'
+import {Userlogindata} from '../user/Userlogindata.class'
 
 @Injectable()
 export class BackendService {
@@ -67,6 +55,15 @@ export class BackendService {
         });
     }
 
+    getBookByIsbn(isbn) {
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+    // return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byISBN`, { headers: header, });
+    return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byisbn` , { headers: header, params: {"isbn":isbn} });
+    }
+
+
     validateLogin(userlogindata: Userlogindata) {
         let header = new HttpHeaders({
             'Accept': 'application/json',
@@ -76,11 +73,3 @@ export class BackendService {
         return this.http.get<User>(`${environment.baseUrl}/user/loggedInUser`, { headers: header, observe: 'response' });
     }
 }
-
-
-// sendAuthorisation(){
-//     return let header = new HttpHeaders({
-//          'Accept': 'application/json',
-//          'Authorization': 'Basic ' + btoa(`${userlogindata.inss}:${userlogindata.password}`)
-//      });
-//  }
