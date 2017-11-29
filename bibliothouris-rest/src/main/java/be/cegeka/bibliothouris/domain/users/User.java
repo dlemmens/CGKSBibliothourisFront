@@ -1,6 +1,7 @@
 package be.cegeka.bibliothouris.domain.users;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,20 +28,6 @@ public class User {
     private String city;
     @Column (name = "PASSWORD")
     private String password;
-
-    public int getId() {
-        return id;
-    }
-
-    public String getPassword() {
-
-        return password;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "USER_ROLE",
@@ -62,7 +49,22 @@ public class User {
         this.postalCode = postalCode;
         this.city = city;
         this.password = password;
+        this.roles = new ArrayList<Role>();
+        roles.add(new Role(RoleType.USER));
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
 
     public String getFirstName() {
         return firstName;

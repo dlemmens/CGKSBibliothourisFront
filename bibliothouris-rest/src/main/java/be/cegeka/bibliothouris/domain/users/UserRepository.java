@@ -19,6 +19,7 @@ public class UserRepository {
 
     public User addUser(User user){
         entityManager.persist(user);
+
         return user;
     }
 
