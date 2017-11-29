@@ -38,8 +38,8 @@ public class BookController {
         return bookService.getBookDetails(bookId);
     }
 
-    @GetMapping(path = "/byISBN", produces = "application/json")
-    public List<Book> searchBookByISBN(@RequestParam(value = "isbn") String isbn) {
+    @GetMapping(path = "/byisbn", produces = "application/json")
+    public List<Book> searchBookByISBN(@RequestParam(value = "isbn",required = false) String isbn) {
         return bookService.searchBookByISBN(isbn);
     }
 

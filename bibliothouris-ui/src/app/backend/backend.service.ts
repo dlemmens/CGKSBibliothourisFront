@@ -42,4 +42,13 @@ export class BackendService {
     });
     return this.http.post<Book>(`${environment.baseUrl}/book` , book, { headers: header});
     }
+
+    getBookByIsbn(isbn) {
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+    // return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byISBN`, { headers: header, });
+    return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byisbn` , { headers: header, params: {"isbn":isbn} });
+    }
+
 }

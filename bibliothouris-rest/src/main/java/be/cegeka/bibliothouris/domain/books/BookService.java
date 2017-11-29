@@ -26,6 +26,7 @@ public class BookService {
     }
 
     public List<Book> searchBookByISBN(String isbn) {
+        if (isbn.length()== 0 ){isbn="*";};
         isbn = isbn.replaceAll("\\*","%");
         return bookRepository.searchBookByISBN(isbn);
     }

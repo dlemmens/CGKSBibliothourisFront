@@ -1,3 +1,17 @@
+<div class='searchrow'>
+    <div class='isbn'>
+        <form #getBookByIsbnForm="ngForm">
+            <div class="searchByIsbn-group">
+
+                <label for="isbn">Book by ISBN:</label>
+                <br>
+                <input type="text" name="isbn" placeholder="Use *" [(ngModel)]="bookIsbn">
+                <button type="submit" class="btn btn-success" (click)="getByIsbn(bookIsbn)">Search for book</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class='booksWrapper'>
     <div class='leftDiv'>
         <table class="table table-striped table-hover">
@@ -25,42 +39,36 @@
             <p>Author last name: {{selectedBook.lastName}}</p>
             <p>Book Id: {{selectedBook.id}}</p>
             <p>houseNumber of books available: </p>
-            <!-- <div class="dialog-centered">
-          <a type="button"
-             class="btn btn-primary btn-lg dialog-centered"
-             (click)="loanBook(selectedBook)">
-            Loan Book
-            </a>
-        </div> -->
 
         </div>
     </section>
 </div>
-<!-- <form role="search">
-    <div>
-      <input type="search" id="mySearch" name="q"
-       placeholder="Search by Id..."
-       aria-label="Search through bibliodory content">
-      <button>Search</button>
-    </div>
-  </form> -->
+
 
 <form #registerBookForm="ngForm">
-    <div class="form-group">
+    <div class="registerBook-group">
 
-        <label for="isbn">ISBN - Number:</label><br>
-        <input type="text" name="isbn" required [(ngModel)]="model.isbn" #isbn="ngModel"><br>
+        <label for="isbn">ISBN - Number:</label>
+        <br>
+        <input type="text" name="isbn" required [(ngModel)]="model.isbn" #isbn="ngModel">
+        <br>
 
-        <label for="firstNameAuthor">First name Author:</label><br>
-        <input type="text" name="firstNameAuthor" required [(ngModel)]="model.firstNameAuthor" #firstNameAuthor="ngModel"><br>
+        <label for="firstNameAuthor">First name Author:</label>
+        <br>
+        <input type="text" name="firstNameAuthor" required [(ngModel)]="model.firstNameAuthor" #firstNameAuthor="ngModel">
+        <br>
 
-        <label for="lastNameAuthor">Last name Author:</label> <br>
-        <input type="text" name="lastNameAuthor" required [(ngModel)]="model.lastNameAuthor" #lastNameAuthor="ngModel"><br>
+        <label for="lastNameAuthor">Last name Author:</label>
+        <br>
+        <input type="text" name="lastNameAuthor" required [(ngModel)]="model.lastNameAuthor" #lastNameAuthor="ngModel">
+        <br>
 
-        <label for="title"> Book Title:</label>   <br>
-        <input type="text" name="title" [(ngModel)]="model.title" #title="ngModel"><br><br>
+        <label for="title"> Book Title:</label>
+        <br>
+        <input type="text" name="title" [(ngModel)]="model.title" #title="ngModel">
+        <br>
+        <br>
 
         <button type="submit" class="btn btn-success" (click)="newBook()">Register New Book</button>
-
     </div>
 </form>
