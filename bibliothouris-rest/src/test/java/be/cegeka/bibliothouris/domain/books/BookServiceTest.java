@@ -70,13 +70,32 @@ public class BookServiceTest {
     }
 
     @Test
-    public void searchBookByISBNButNoContentPasse_ShouldreturnAllBooks() throws Exception {
+    public void searchBookByISBNButNoContentPassed_ShouldreturnAllBooks() throws Exception {
         List<Book> bookList = Arrays.asList(book1, book2);
 
         when(bookRepository.searchBookByISBN("%")).thenReturn(bookList);
 
         assertThat(bookService.searchBookByISBN("")).containsOnly(book1, book2);
     }
+
+    @Test //
+    public void searchBookByTitleButNoContentPassed_ShouldreturnAllBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookRepository.searchBookByTitle("%")).thenReturn(bookList);
+
+        assertThat(bookService.searchBookByTitle("")).containsOnly(book1, book2);
+    }
+
+    @Test //
+    public void searchBookByAuthorButNoContentPassed_ShouldreturnAllBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookRepository.searchBookByAuthor("%")).thenReturn(bookList);
+
+        assertThat(bookService.searchBookByAuthor("")).containsOnly(book1, book2);
+    }
+
 
     @Test
     public void searchBookByTitle_ShouldInvokeBookRepositoryAndReturnAListOfBooks() throws Exception {
