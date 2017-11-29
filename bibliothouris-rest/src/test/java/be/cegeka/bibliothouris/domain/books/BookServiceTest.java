@@ -86,4 +86,13 @@ public class BookServiceTest {
 
         assertThat(bookService.searchBookByTitle("*p*")).containsOnly(book1, book2);
     }
+
+    @Test
+    public void searchBookByAuthor_ShouldInvokeBookRepositoryAndReturnAListOfBooks() throws Exception {
+        List<Book> bookList = Arrays.asList(book1, book2);
+
+        when(bookRepository.searchBookByAuthor("%p%")).thenReturn(bookList);
+
+        assertThat(bookService.searchBookByAuthor("*p*")).containsOnly(book1, book2);
+    }
 }

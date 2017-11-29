@@ -85,6 +85,17 @@
   display: flex;
   padding : 25px;
 }
+
+.isbn {
+  padding : 25px;
+}
+
+.title {
+  padding: 25px;
+}
+.author {
+  padding : 25px;
+}
  /**************************************************************************************/
  
 

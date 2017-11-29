@@ -2,13 +2,34 @@
     <div class='isbn'>
         <form #getBookByIsbnForm="ngForm">
             <div class="searchByIsbn-group">
-
                 <label for="isbn">Book by ISBN:</label>
                 <br>
                 <input type="text" name="isbn" placeholder="Use *" [(ngModel)]="bookIsbn">
                 <button type="submit" class="btn btn-success" (click)="getByIsbn(bookIsbn)">Search for book</button>
             </div>
         </form>
+    </div>
+    <div class='title'>
+        <form #getBookByTitleForm="ngForm">
+            <div class="searchByTitle-group">
+                <label for="title">Book by Title:</label>
+                <br>
+                <input type="text" name="title" placeholder="Use *" [(ngModel)]="bookTitle">
+                <button type="submit" class="btn btn-success" (click)="getByTitle(bookTitle)">Search for book</button>
+            </div>
+        </form>
+
+    </div>
+    <div class='author'>
+        <form #getBookByAuthorForm="ngForm">
+            <div class="searchByAuthor-group">
+                <label for="author">Book by Author:</label>
+                <br>
+                <input type="text" name="author" placeholder="Use *" [(ngModel)]="bookAuthor">
+                <button type="submit" class="btn btn-success" (click)="getByAuthor(bookAuthor)">Search for book</button>
+            </div>
+        </form>
+
     </div>
 </div>
 

@@ -85,4 +85,16 @@ public class BookRepositoryTest {
 
         assertThat(actualBooks).contains(book1, book2);
     }
+
+    @Test
+    public void searchBookByAuthor_ShouldReturnAListOfBooksContainingThatPartOfAuthor() throws Exception {
+        Book book1 = aBook().withFirstName("Domien").build();
+        Book book2 = aBook().withFirstName("Maddy").build();
+        entityManager.persist(book1);
+        entityManager.persist(book2);
+
+        List<Book> actualBooks = bookRepository.searchBookByAuthor("%d%");
+
+        assertThat(actualBooks).contains(book1, book2);
+    }
 }

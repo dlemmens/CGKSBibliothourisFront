@@ -47,8 +47,23 @@ export class BackendService {
         let header = new HttpHeaders({ 'Accept': 'application/json',
         'Authorization' : 'Basic ' + btoa('seppe:password')
     });
-    // return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byISBN`, { headers: header, });
+   
     return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byisbn` , { headers: header, params: {"isbn":isbn} });
     }
 
+    getBookByTitle(title){
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+   
+    return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byTitle` , { headers: header, params: {"title":title} });
+    }
+
+    getBookByAuthor(author){
+        let header = new HttpHeaders({ 'Accept': 'application/json',
+        'Authorization' : 'Basic ' + btoa('seppe:password')
+    });
+   
+    return this.http.get<Array<Book>>(`${environment.baseUrl}/book/byauthor` , { headers: header, params: {"author":author} });
+    }
 }

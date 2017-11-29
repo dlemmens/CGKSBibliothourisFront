@@ -44,4 +44,18 @@ export class Books implements OnInit {
     })
     }
 
+    getByTitle(title){
+        this.backendService.getBookByTitle(title)
+        .subscribe(books => {
+            this.books = books;
+        })
+    }
+
+    getByAuthor(author){
+        this.backendService.getBookByAuthor(author)
+        .subscribe(books => {
+            this.books = books;
+        })
+    }
+
 }
